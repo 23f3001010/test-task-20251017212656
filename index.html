@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            padding: 2rem;
+        }
+        .app-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <h1 class="text-center">Simple Responsive App</h1>
+    <form id="inputForm">
+        <div class="mb-3">
+            <label for="userInput" class="form-label">Enter something:</label>
+            <input type="text" class="form-control" id="userInput" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+    </form>
+    <div class="mt-3" id="output"></div>
+</div>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('inputForm');
+        const output = document.getElementById('output');
+        
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const userInput = document.getElementById('userInput').value;
+            output.innerHTML = `
+                <div class="alert alert-success">
+                    You entered: <strong>${userInput}</strong>
+                </div>
+            `;
+            form.reset();
+        });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
